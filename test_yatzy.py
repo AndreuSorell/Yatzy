@@ -11,6 +11,10 @@ def test_chance():
     assert 14 == Yatzy.chance(1, 1, 3, 3, 6)
     assert 21 == Yatzy.chance(4, 5, 5, 6, 1)
 
+def test_yatzy():
+    assert 50 == Yatzy.yatzy(1, 1, 1, 1, 1)
+    assert 0 == Yatzy.yatzy(1, 1, 1, 1, 2)
+
 
 @pytest.fixture
 def inyector():

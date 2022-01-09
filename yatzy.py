@@ -11,13 +11,9 @@ class Yatzy:
         return total
 
     @staticmethod
-    def yatzy(dice):
-        counts = [0]*(len(dice)+1)
-        for die in dice:
-            counts[die-1] += 1
-        for i in range(len(counts)):
-            if counts[i] == 5:
-                return 50
+    def yatzy(*dices):
+        if dices.count(dices[0]) == 5:
+            return 50
         return 0
     
     @staticmethod

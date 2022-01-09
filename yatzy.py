@@ -17,77 +17,26 @@ class Yatzy:
         return 0
     
     @staticmethod
-    def ones( dice1,  dice2,  dice3,  dice4,  dice5):
-        sum = 0
-        if (dice1 == 1):
-            sum += 1
-        if (dice2 == 1):
-            sum += 1
-        if (dice3 == 1):
-            sum += 1
-        if (dice4 == 1):
-            sum += 1
-        if (dice5 == 1): 
-            sum += 1
-
-        return sum
+    def ones(*dices):
+        return dices.count(1)
     
 
     @staticmethod
-    def twos( dice1,  dice2,  dice3,  dice4,  dice5):
-        sum = 0
-        if (dice1 == 2):
-             sum += 2
-        if (dice2 == 2):
-             sum += 2
-        if (dice3 == 2):
-             sum += 2
-        if (dice4 == 2):
-             sum += 2
-        if (dice5 == 2):
-             sum += 2
-        return sum
+    def twos(*dices):
+        return dices.count(2) * 2
     
     @staticmethod
-    def threes( dice1,  dice2,  dice3,  dice4,  dice5):
-        s = 0
-        if (dice1 == 3):
-             s += 3
-        if (dice2 == 3):
-             s += 3
-        if (dice3 == 3):
-             s += 3
-        if (dice4 == 3):
-             s += 3
-        if (dice5 == 3):
-             s += 3
-        return s
-
-
+    def threes(*dices):
+        return dices.count(3) * 3
     
     def fours(self):
-        sum = 0
-        for at in range(5):
-            if (self.dices[at] == 4): 
-                sum += 4
-        return sum
-    
+        return self.dices.count(4) * 4
 
     def fives(self):
-        s = 0
-        i = 0
-        for i in range(len(self.dices)): 
-            if (self.dices[i] == 5):
-                s = s + 5
-        return s
-    
+        return self.dices.count(5) * 5
 
     def sixes(self):
-        sum = 0
-        for at in range(len(self.dices)): 
-            if (self.dices[at] == 6):
-                sum = sum + 6
-        return sum
+        return self.dices.count(6) * 6
     
     @staticmethod
     def score_pair( dice1,  dice2,  dice3,  dice4,  dice5):

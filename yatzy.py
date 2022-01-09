@@ -1,8 +1,10 @@
 class Yatzy:
+    
+    def __init__(self, *dices):
+        self.dices = list(dices)
 
     @staticmethod
-    def chance(dice1, dice2, dice3, dice4, dice5):
-        dices = [dice1, dice2, dice3, dice4, dice5]
+    def chance(*dices):
         total = 0
         for dice in dices:
             total += dice
@@ -64,20 +66,13 @@ class Yatzy:
         if (dice5 == 3):
              s += 3
         return s
-    
 
-    def __init__(self, dice1, dice2, dice3, dice4, dice5):
-        self.dice = [0]*5
-        self.dice[0] = dice1
-        self.dice[1] = dice2
-        self.dice[2] = dice3
-        self.dice[3] = dice4
-        self.dice[4] = dice5
+
     
     def fours(self):
         sum = 0
         for at in range(5):
-            if (self.dice[at] == 4): 
+            if (self.dices[at] == 4): 
                 sum += 4
         return sum
     
@@ -85,16 +80,16 @@ class Yatzy:
     def fives(self):
         s = 0
         i = 0
-        for i in range(len(self.dice)): 
-            if (self.dice[i] == 5):
+        for i in range(len(self.dices)): 
+            if (self.dices[i] == 5):
                 s = s + 5
         return s
     
 
     def sixes(self):
         sum = 0
-        for at in range(len(self.dice)): 
-            if (self.dice[at] == 6):
+        for at in range(len(self.dices)): 
+            if (self.dices[at] == 6):
                 sum = sum + 6
         return sum
     

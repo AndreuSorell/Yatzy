@@ -2,12 +2,10 @@ class Yatzy:
 
     @staticmethod
     def chance(dice1, dice2, dice3, dice4, dice5):
+        dices = [dice1, dice2, dice3, dice4, dice5]
         total = 0
-        total += dice1
-        total += dice2
-        total += dice3
-        total += dice4
-        total += dice5
+        for dice in dices:
+            total += dice
         return total
 
     @staticmethod

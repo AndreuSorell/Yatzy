@@ -55,10 +55,10 @@ class Yatzy:
             pairs[dice-1] += 1
         n = 0
         score = 0
-        for i in range(6):
-            if (pairs[6-i-1] >= 2):
+        for num in range(6):
+            if (pairs[6-num-1] >= 2):
                 n += 1
-                score += (6-i)
+                score += (6-num)
         if (n == 2):
             return score * 2
         else:
@@ -100,34 +100,22 @@ class Yatzy:
     
 
     @staticmethod
-    def fullHouse( dice1,  dice2,  dice3,  dice4,  dice5):
-        tallies = []
-        _2 = False
-        i = 0
-        _2_at = 0
-        _3 = False
-        _3_at = 0
-
-        tallies = [0]*6
-        tallies[dice1-1] += 1
-        tallies[dice2-1] += 1
-        tallies[dice3-1] += 1
-        tallies[dice4-1] += 1
-        tallies[dice5-1] += 1
-
-        for i in range(6):
-            if (tallies[i] == 2): 
-                _2 = True
-                _2_at = i+1
-            
-
-        for i in range(6):
-            if (tallies[i] == 3): 
-                _3 = True
-                _3_at = i+1
-            
-
-        if (_2 and _3):
-            return _2_at * 2 + _3_at * 3
+    def full_house(*dices):
+        pair = False
+        three = False
+        score = 0
+        full = [0]*6
+        for dice in dices:
+            full[dice-1] += 1
+        for num in range(6):
+            if (full[num] == 2): 
+                pair = True
+                score += (num+1) *2
+        for num in range(6):
+            if (full[num] == 3): 
+                three = True
+                score += (num+1) * 3
+        if (pair and three):
+            return score
         else:
             return 0

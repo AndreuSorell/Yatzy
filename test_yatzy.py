@@ -38,8 +38,7 @@ def test_pairs():
     assert 6 == Yatzy.pair(3, 3, 3, 3, 1)
     assert 0 == Yatzy.pair(3, 2, 5, 4, 1)
 
-@pytest.fixture
-def inyector():
-    # Es el setup de unittest o de JUnit
-    tirada = Yatzy(1, 2, 3, 4, 5)
-    return tirada
+def test_two_pairs():
+    assert 8 == Yatzy.two_pairs(1, 1, 2, 3, 3)
+    assert 0 == Yatzy.two_pairs(1, 1, 2, 3, 4)
+    assert 6 == Yatzy.two_pairs(1, 1, 2, 2, 2)

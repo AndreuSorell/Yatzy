@@ -42,3 +42,13 @@ def test_two_pairs():
     assert 8 == Yatzy.two_pairs(1, 1, 2, 3, 3)
     assert 0 == Yatzy.two_pairs(1, 1, 2, 3, 4)
     assert 6 == Yatzy.two_pairs(1, 1, 2, 2, 2)
+
+def test_three():
+    assert 9 == Yatzy.three_of_a_kind(3, 3, 3, 4, 5)
+    assert 0 == Yatzy.three_of_a_kind(3, 3, 2, 4, 5)
+    assert 9 == Yatzy.three_of_a_kind(3, 3, 3, 3, 5)
+
+def test_poker():
+    assert 8 == Yatzy.four_of_a_kind(2, 2, 2, 2, 5)
+    assert 0 == Yatzy.four_of_a_kind(2, 2, 2, 5, 5)    
+    assert 8 == Yatzy.four_of_a_kind(2, 2, 2, 2, 2)    

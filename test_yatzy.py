@@ -1,12 +1,7 @@
 import pytest
 from yatzy import Yatzy
 
-# Chance
-# The player scores the sum of all dice, no matter what they read.
-
-
 def test_chance():
-    # iterar sobre *args evita codigo cableado a 5 argumentos
     assert 15 == Yatzy.chance(1, 2, 3, 4, 5)
     assert 14 == Yatzy.chance(1, 1, 3, 3, 6)
     assert 21 == Yatzy.chance(4, 5, 5, 6, 1)
@@ -59,3 +54,8 @@ def test_straights():
     assert 20 == Yatzy.large_straight(2, 3, 4, 5, 6)
     assert 0 == Yatzy.large_straight(1, 2, 3, 4, 5)
 
+def test_full_house():
+    assert 8 == Yatzy.full_house(1, 1, 2, 2, 2)
+    assert 7 == Yatzy.full_house(1, 1, 1, 2, 2)  
+    assert 0 == Yatzy.full_house(1, 1, 2, 2, 3)  
+    assert 0 == Yatzy.full_house(1, 2, 2, 2, 2)

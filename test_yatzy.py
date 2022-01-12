@@ -52,3 +52,10 @@ def test_poker():
     assert 8 == Yatzy.four_of_a_kind(2, 2, 2, 2, 5)
     assert 0 == Yatzy.four_of_a_kind(2, 2, 2, 5, 5)    
     assert 8 == Yatzy.four_of_a_kind(2, 2, 2, 2, 2)    
+
+def test_straights():
+    assert 15 == Yatzy.small_straight(1, 2, 3, 4, 5)
+    assert 0 == Yatzy.small_straight(2, 3, 4, 5, 6)
+    assert 20 == Yatzy.large_straight(2, 3, 4, 5, 6)
+    assert 0 == Yatzy.large_straight(1, 2, 3, 4, 5)
+

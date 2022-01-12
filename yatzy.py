@@ -65,32 +65,18 @@ class Yatzy:
             return 0
     
     @staticmethod
-    def four_of_a_kind( _1,  _2,  dice3,  dice4,  dice5):
-        tallies = [0]*6
-        tallies[_1-1] += 1
-        tallies[_2-1] += 1
-        tallies[dice3-1] += 1
-        tallies[dice4-1] += 1
-        tallies[dice5-1] += 1
-        for i in range(6):
-            if (tallies[i] >= 4):
-                return (i+1) * 4
+    def three_of_a_kind(*dices):
+        for dice in range(6):
+            if dices.count(dice) >= 3:
+                return dice * 3
         return 0
-    
 
     @staticmethod
-    def three_of_a_kind( dice1,  dice2,  dice3,  dice4,  dice5):
-        t = [0]*6
-        t[dice1-1] += 1
-        t[dice2-1] += 1
-        t[dice3-1] += 1
-        t[dice4-1] += 1
-        t[dice5-1] += 1
-        for i in range(6):
-            if (t[i] >= 3):
-                return (i+1) * 3
+    def four_of_a_kind(*dices):
+        for dice in range(6):
+            if dices.count(dice) >= 4:
+                return dice * 4
         return 0
-    
 
     @staticmethod
     def smallStraight( dice1,  dice2,  dice3,  dice4,  dice5):

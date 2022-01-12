@@ -42,28 +42,23 @@ class Yatzy:
     def pair(*dices):
         pairs = [0]*6
         for dice in dices:
-            if pairs[dice - 1] < 2:
-                pairs[dice-1] += 1
+            pairs[dice-1] += 1
         for num in range(6):
-            if (pairs[6-num-1] == 2):
+            if (pairs[6-num-1] >= 2):
                 return (6-num)*2
         return 0
     
     @staticmethod
-    def two_pair( dice1,  dice2,  dice3,  dice4,  dice5):
-        counts = [0]*6
-        counts[dice1-1] += 1
-        counts[dice2-1] += 1
-        counts[dice3-1] += 1
-        counts[dice4-1] += 1
-        counts[dice5-1] += 1
+    def two_pairs(*dices):
+        pairs = [0]*6
+        for dice in dices:
+            pairs[dice-1] += 1
         n = 0
         score = 0
         for i in range(6):
-            if (counts[6-i-1] >= 2):
-                n = n+1
+            if (pairs[6-i-1] >= 2):
+                n += 1
                 score += (6-i)
-                    
         if (n == 2):
             return score * 2
         else:

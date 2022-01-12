@@ -32,7 +32,11 @@ def test_single_numbers():
     assert 12 == Yatzy(6, 2, 1, 1, 6).sixes()
 
 def test_pairs():
-    assert 8 == Yatzy.score_pair(3, 3, 3, 4, 4)
+    assert 8 == Yatzy.pair(3, 3, 3, 4, 4)
+    assert 12 == Yatzy.pair(1, 1, 6, 2, 6)
+    assert 6 == Yatzy.pair(3, 3, 3, 4, 1)
+    assert 6 == Yatzy.pair(3, 3, 3, 3, 1)
+    assert 0 == Yatzy.pair(3, 2, 5, 4, 1)
 
 @pytest.fixture
 def inyector():

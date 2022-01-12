@@ -39,17 +39,14 @@ class Yatzy:
         return self.dices.count(6) * 6
     
     @staticmethod
-    def score_pair( dice1,  dice2,  dice3,  dice4,  dice5):
-        counts = [0]*6
-        counts[dice1-1] += 1
-        counts[dice2-1] += 1
-        counts[dice3-1] += 1
-        counts[dice4-1] += 1
-        counts[dice5-1] += 1
-        at = 0
-        for at in range(6):
-            if (counts[6-at-1] == 2):
-                return (6-at)*2
+    def pair(*dices):
+        pairs = [0]*6
+        for dice in dices:
+            if pairs[dice - 1] < 2:
+                pairs[dice-1] += 1
+        for num in range(6):
+            if (pairs[6-num-1] == 2):
+                return (6-num)*2
         return 0
     
     @staticmethod

@@ -1,6 +1,7 @@
 {
     "conventionalCommits.scopes": [
         "src",
-        "test"
+        "test",
+        "logic"
     ]
 }

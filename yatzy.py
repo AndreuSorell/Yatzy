@@ -1,3 +1,4 @@
+from pips import Pips
 class Yatzy:
     
     def __init__(self, *dices):
@@ -18,25 +19,30 @@ class Yatzy:
     
     @staticmethod
     def ones(*dices):
-        return dices.count(1)
+        ONE = Pips.ONE.value
+        return dices.count(ONE)
     
-
     @staticmethod
     def twos(*dices):
-        return dices.count(2) * 2
+        TWO = Pips.TWO.value
+        return dices.count(TWO) * TWO
     
     @staticmethod
     def threes(*dices):
-        return dices.count(3) * 3
-    
+        THREE = Pips.THREE.value
+        return dices.count(THREE) * THREE
+
     def fours(self):
-        return self.dices.count(4) * 4
+        FOUR = Pips.FOUR.value
+        return self.dices.count(FOUR) * FOUR
 
     def fives(self):
-        return self.dices.count(5) * 5
+        FIVE = Pips.FIVE.value
+        return self.dices.count(FIVE) * FIVE
 
     def sixes(self):
-        return self.dices.count(6) * 6
+        SIX = Pips.SIX.value
+        return self.dices.count(SIX) * SIX
     
     @staticmethod
     def pair(*dices):
@@ -84,7 +90,6 @@ class Yatzy:
             if die != pip:
                 return 0
         return 15
-        # return [0 for die, pip in enumerate(sorted(dices), 1) if die != pip else 15]
 
     @staticmethod
     def large_straight(*dices):

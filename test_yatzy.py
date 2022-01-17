@@ -1,4 +1,3 @@
-import pytest
 from yatzy import Yatzy
 
 def test_chance():

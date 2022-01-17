@@ -51,22 +51,16 @@ class Yatzy:
             if dices.count(pip) >= PAIR:
                 return PAIR * pip
         return 0
+
+    @classmethod
+    def __filter_pips_repeated(cls, dices, times):
+        return list(filter(lambda pip: dices.count(pip) >= times, Pips.sorted_values()))
     
-    @staticmethod
-    def two_pairs(*dices):
-        pairs = [0]*6
-        for pip in dices:
-            pairs[pip-1] += 1
-        n = 0
-        score = 0
-        for num in range(6):
-            if (pairs[6-num-1] >= 2):
-                n += 1
-                score += (6-num)
-        if (n == 2):
-            return score * 2
-        else:
-            return 0
+    @classmethod
+    def two_pairs(cls, *dices):
+        PAIR = 2
+        pips_pairs = cls.__filter_pips_repeated(dices, PAIR)
+        return sum(pips_pairs) * PAIR if len(pips_pairs) == 2 else 0
     
     @staticmethod
     def three_of_a_kind(*dices):

@@ -81,14 +81,14 @@ class Yatzy:
         for die, pip in enumerate(sorted(dices), 1):
             if die != pip:
                 return 0
-        return 15
+        return sum(dices)
 
     @staticmethod
     def large_straight(*dices):
         for die, pip in enumerate(sorted(dices), 2):
             if die != pip:
                 return 0
-        return 20
+        return sum(dices)
     
     @staticmethod
     def full_house(*dices):

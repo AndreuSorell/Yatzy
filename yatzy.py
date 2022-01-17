@@ -46,12 +46,10 @@ class Yatzy:
     
     @staticmethod
     def pair(*dices):
-        pairs = [0]*6
-        for pip in dices:
-            pairs[pip-1] += 1
-        for num in range(6):
-            if (pairs[6-num-1] >= 2):
-                return (6-num)*2
+        PAIR = 2
+        for pip in Pips.sorted_values():
+            if dices.count(pip) >= PAIR:
+                return PAIR * pip
         return 0
     
     @staticmethod

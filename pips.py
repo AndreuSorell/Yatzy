@@ -12,3 +12,8 @@ class Pips(Enum):
     @classmethod
     def values(cls):
         return [number._value_ for number in Pips.__members__.values()]
+
+    @classmethod
+    def sorted_values(cls):
+        return reversed(cls.values())
+    
